@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.mapper.HotelMapper">
+
+    <select id="selectHotelList" resultType="com.travel.entity.Hotel">
+        SELECT * FROM hotel
+        <where>
+            <if test="hotel.name != null and hotel.name != ''">
+                name LIKE CONCAT('%',#{hotel.name},'%')
+            </if>
+            <!-- 使用typeId数字筛选，hotel表字段typeId -->
+            <if test="hotel.typeId != null">
+                typeId = #{hotel.typeId}
+            </if>
+        </where>
+        ORDER BY id ASC
+        LIMIT #{start}, #{pageSize}
+    </select>
+
+    <select id="countHotel" resultType="int">
+        SELECT COUNT(*) FROM hotel
+        <where>
+            <if test="hotel.name != null and hotel.name != ''">
+                name LIKE CONCAT('%',#{hotel.name},'%')
+            </if>
+            <!-- 统计总数同样加上typeId条件，分页total才会正确 -->
+            <if test="hotel.typeId != null">
+                typeId = #{hotel.typeId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertHotel" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO hotel(name,spotId,nearSpot,distance,type,typeId,address,priceRange,score,`desc`,img)
+        VALUES(#{name},#{spotId},#{nearSpot},#{distance},#{type},#{typeId},#{address},#{priceRange},#{score},#{desc},#{img})
+    </insert>
+
+    <update id="updateHotel">
+        UPDATE hotel SET
+        name=#{name},
+        spotId=#{spotId},
+        nearSpot=#{nearSpot},
+        distance=#{distance},
+        type=#{type},
+        typeId=#{typeId},
+        address=#{address},
+        priceRange=#{priceRange},
+        score=#{score},
+        `desc`=#{desc},
+        img=#{img}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="deleteHotelById">
+        DELETE FROM hotel WHERE id=#{id}
+    </delete>
+
+    <select id="selectHotelById" resultType="com.travel.entity.Hotel">
+        SELECT * FROM hotel WHERE id=#{id}
+    </select>
+
+    <!-- 新增：住宿名称搜索联想 -->
+    <select id="selectNamesByKeyword" resultType="java.lang.String">
+        SELECT name FROM hotel
+        <where>
+            <if test="keyword != null and keyword != ''">
+                name LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+        </where>
+        ORDER BY id DESC
+        LIMIT 10
+    </select>
+
+</mapper>

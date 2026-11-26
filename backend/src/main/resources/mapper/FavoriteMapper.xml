@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.mapper.FavoriteMapper">
+
+    <insert id="insertFavorite" parameterType="com.travel.entity.Favorite">
+        INSERT INTO favorite (userId, targetType, targetId, targetName, targetImg, createTime)
+        VALUES (#{userId}, #{targetType}, #{targetId}, #{targetName}, #{targetImg}, NOW())
+    </insert>
+
+    <delete id="deleteFavorite">
+        DELETE FROM favorite
+        WHERE userId = #{userId} AND targetType = #{targetType} AND targetId = #{targetId}
+    </delete>
+
+    <delete id="deleteById">
+        DELETE FROM favorite WHERE id = #{id}
+    </delete>
+
+    <select id="selectByUser" resultType="com.travel.entity.Favorite">
+        SELECT id, userId, targetType, targetId, targetName, targetImg, createTime
+        FROM favorite
+        WHERE userId = #{userId}
+        ORDER BY id DESC
+    </select>
+
+    <select id="checkExists" resultType="int">
+        SELECT COUNT(*)
+        FROM favorite
+        WHERE userId = #{userId} AND targetType = #{targetType} AND targetId = #{targetId}
+    </select>
+</mapper>

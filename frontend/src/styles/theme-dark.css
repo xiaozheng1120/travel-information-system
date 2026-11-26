@@ -1,0 +1,1403 @@
+/* ============================================================
+ * 全站深色主题（深蓝夜色）
+ * 由页面原有 CSS 自动映射生成 + 手工补充的 Element Plus / 布局覆盖
+ * 只有 html 上有 .dark 时才生效，浅色模式完全不受影响
+ * ============================================================ */
+
+html.dark .ac-panel {
+    background: rgba(21, 33, 54, 0.94) !important;
+}
+
+html.dark .theme-toggle {
+    background: rgba(21, 33, 54, 0.8) !important;
+}
+
+html.dark .welcome-text .desc {
+    color: #94a6bc !important;
+}
+
+html.dark .stat-num {
+    color: #d7e3f4 !important;
+}
+
+html.dark .stat-label {
+    color: #94a6bc !important;
+}
+
+html.dark .stat-icon {
+    color: #e8f0fb !important;
+}
+
+html.dark .func-card {
+    background: #16223a !important;
+}
+
+html.dark .icon-wrap {
+    color: #e8f0fb !important;
+}
+
+html.dark .card-title {
+    color: #d7e3f4 !important;
+}
+
+html.dark .card-desc {
+    color: #94a6bc !important;
+}
+
+html.dark .admin-aside {
+    background-color: #16223a !important;
+}
+
+html.dark .logo-box {
+    background: #1a2740 !important;
+    color: #e8f0fb !important;
+}
+
+html.dark .admin-menu {
+    background-color: #16223a !important;
+}
+
+html.dark .admin-menu .el-menu-item.is-active {
+    color: #e8f0fb !important;
+}
+
+html.dark .admin-menu .el-menu-item.is-active .el-icon {
+    color: #e8f0fb !important;
+}
+
+html.dark .admin-header {
+    background: #16223a !important;
+}
+
+html.dark .breadcrumb {
+    color: #bccde2 !important;
+}
+
+html.dark .breadcrumb .current {
+    color: #d7e3f4 !important;
+}
+
+html.dark .admin-user {
+    color: #d7e3f4 !important;
+}
+
+html.dark .guide-page {
+    background: radial-gradient(circle at 12% 12%, rgba(59, 130, 246, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(124, 58, 237, 0.10), transparent 32%),
+    linear-gradient(180deg, #1a2740 0%, #1a2740 45%, #0d1830 100%) !important;
+}
+
+html.dark .nav-header {
+    background: rgba(21, 33, 54, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11) !important;
+}
+
+html.dark .logo-text {
+    color: #e6efff !important;
+}
+
+html.dark .user-box {
+    background: #1a2740 !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+html.dark .user-name {
+    color: #e6efff !important;
+}
+
+html.dark .page-banner::before {
+    background: radial-gradient(circle, rgba(21, 33, 54, 0.42) 0%,transparent 70%) !important;
+}
+
+html.dark .banner-text h2 {
+    color: #e6efff !important;
+}
+
+html.dark .banner-text p {
+    color: #a0b1c7 !important;
+}
+
+html.dark .data-item {
+    background: rgba(21, 33, 54, 0.47) !important;
+}
+
+html.dark .data-item .num {
+    color: #e6efff !important;
+}
+
+html.dark .data-item .label {
+    color: #bccde2 !important;
+}
+
+html.dark .title-left h2 {
+    color: #e6efff !important;
+}
+
+html.dark .search-card {
+    background: rgba(21, 33, 54, 0.56) !important;
+}
+
+html.dark .search-title {
+    color: #e6efff !important;
+}
+
+html.dark .tag-row .el-tag {
+    background-color: #16223a !important;
+    color: #bccde2 !important;
+}
+
+html.dark .tag-row .el-tag.is-active {
+    color: #e8f0fb !important;
+}
+
+html.dark .search-row .el-input__wrapper {
+    background-color: #16223a !important;
+}
+
+html.dark .search-row .el-button--primary {
+    color: #e8f0fb !important;
+}
+
+html.dark .search-row .el-button:not(.el-button--primary) {
+    background-color: #16223a !important;
+    color: #bccde2 !important;
+}
+
+html.dark .guide-card {
+    background: #16223a !important;
+}
+
+html.dark .card-body h4 {
+    color: #e6efff !important;
+}
+
+html.dark .author {
+    color: #a9bdd6 !important;
+}
+
+html.dark .time {
+    color: #a7b9d1 !important;
+}
+
+html.dark .detail-btn {
+    color: #e8f0fb !important;
+}
+
+html.dark .pagination-wrap .el-pager li.is-active {
+    color: #e8f0fb !important;
+}
+
+html.dark .footer-card {
+    background: linear-gradient(180deg, #16223a 0%, #f7faff 100%) !important;
+}
+
+html.dark .footer-section-title > span {
+    color: #e6efff !important;
+}
+
+html.dark .topic-card {
+    background: #16223a !important;
+}
+
+html.dark .topic-icon {
+    background: rgba(21, 33, 54, 0.89) !important;
+}
+
+html.dark .topic-mask {
+    background: linear-gradient(180deg, rgba(21, 33, 54, 0.22), rgba(64, 112, 182, 0.35)) !important;
+}
+
+html.dark .topic-title {
+    color: #e6efff !important;
+}
+
+html.dark .topic-desc {
+    color: #a7b9d1 !important;
+}
+
+html.dark .banner-empty {
+    color: #94a6bc !important;
+}
+
+html.dark .banner-info {
+    color: #e8f0fb !important;
+}
+
+html.dark .tag {
+    background: rgba(21, 33, 54, 0.26) !important;
+}
+
+html.dark .tag-item {
+    background: rgba(21, 33, 54, 0.24) !important;
+}
+
+html.dark .article {
+    background: #16223a !important;
+}
+
+html.dark .article-title {
+    color: #e8f0fb !important;
+}
+
+html.dark .article p {
+    color: #a0b1c7 !important;
+}
+
+html.dark .empty {
+    color: #90a3b9 !important;
+}
+
+html.dark .home-page {
+    background: radial-gradient(circle at 12% 12%, rgba(59, 130, 246, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(124, 58, 237, 0.10), transparent 32%),
+    linear-gradient(180deg, #1a2740 0%, #1a2740 45%, #0d1830 100%) !important;
+}
+
+html.dark .nav-header {
+    background: rgba(21, 33, 54, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11) !important;
+}
+
+html.dark .logo-text {
+    color: #e6efff !important;
+}
+
+html.dark .user-box {
+    background: #1a2740 !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+html.dark .user-name {
+    color: #e6efff !important;
+}
+
+html.dark .banner-text {
+    color: #e8f0fb !important;
+}
+
+html.dark .discover-btn {
+    background: rgba(21, 33, 54, 0.22) !important;
+    color: #e8f0fb !important;
+}
+
+html.dark .arrow-left,
+html.dark .arrow-right {
+    background: rgba(21, 33, 54, 0.24) !important;
+    color: #e8f0fb !important;
+}
+
+html.dark .search-box {
+    background: rgba(21, 33, 54, 0.69) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+html.dark .search-input .el-input__wrapper {
+    background: #16223a !important;
+}
+
+html.dark .section {
+    background: rgba(21, 33, 54, 0.6) !important;
+}
+
+html.dark .section-head h3 {
+    color: #e6efff !important;
+}
+
+html.dark .section-title-left h3 {
+    color: #e6efff !important;
+}
+
+html.dark .nav-item {
+    color: #e6efff !important;
+    background: #16223a !important;
+}
+
+html.dark .nav-item small {
+    color: #a9bdd6 !important;
+}
+
+html.dark .card-item {
+    background: #16223a !important;
+}
+
+html.dark .price-tag {
+    background: rgba(21, 33, 54, 0.89) !important;
+    color: #e6efff !important;
+}
+
+html.dark .card-body h4 {
+    color: #e6efff !important;
+}
+
+html.dark .addr {
+    color: #a9bdd6 !important;
+}
+
+html.dark .desc {
+    color: #a9bdd6 !important;
+}
+
+html.dark .detail-btn {
+    color: #e8f0fb !important;
+}
+
+html.dark .guide-card-item {
+    background: #16223a !important;
+}
+
+html.dark .view-badge {
+    color: #e8f0fb !important;
+}
+
+html.dark .guide-card-info h4 {
+    color: #e6efff !important;
+}
+
+html.dark .guide-meta {
+    color: #a9bdd6 !important;
+}
+
+html.dark .author {
+    color: #bccde2 !important;
+}
+
+html.dark .date {
+    color: #a7b9d1 !important;
+}
+
+html.dark .footer-card {
+    background: #16223a !important;
+}
+
+html.dark .footer-title {
+    color: #e6efff !important;
+}
+
+html.dark .footer-brand-name {
+    color: #e6efff !important;
+}
+
+html.dark .footer-desc {
+    color: #a9bdd6 !important;
+}
+
+html.dark .footer-link-list a {
+    color: #bccde2 !important;
+}
+
+html.dark .contact-card {
+    background: linear-gradient(135deg, #1a2740, #eef2ff) !important;
+}
+
+html.dark .contact-icon {
+    color: #e8f0fb !important;
+}
+
+html.dark .contact-label {
+    color: #a7b9d1 !important;
+}
+
+html.dark .contact-email {
+    color: #e6efff !important;
+}
+
+html.dark .footer-tip {
+    color: #a7b9d1 !important;
+}
+
+html.dark .copyright {
+    color: #a7b9d1 !important;
+}
+
+html.dark .hotel-page {
+    background: radial-gradient(circle at 12% 12%, rgba(59, 130, 246, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(124, 58, 237, 0.10), transparent 32%),
+    linear-gradient(180deg, #1a2740 0%, #1a2740 45%, #0d1830 100%) !important;
+}
+
+html.dark .nav-header {
+    background: rgba(21, 33, 54, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11) !important;
+}
+
+html.dark .logo-text {
+    color: #e6efff !important;
+}
+
+html.dark .user-box {
+    background: #1a2740 !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+html.dark .user-name {
+    color: #e6efff !important;
+}
+
+html.dark .page-hero {
+    color: #e8f0fb !important;
+}
+
+html.dark .hero-decor {
+    background: rgba(21, 33, 54, 0.12) !important;
+}
+
+html.dark .hero-tag {
+    background: rgba(21, 33, 54, 0.17) !important;
+}
+
+html.dark .search-card {
+    background: rgba(21, 33, 54, 0.8) !important;
+}
+
+html.dark .search-title {
+    color: #e6efff !important;
+}
+
+html.dark .filter-item label {
+    color: #dbe6f6 !important;
+}
+
+html.dark .rate-text {
+    color: #bccde2 !important;
+}
+
+html.dark .list-head h2 {
+    color: #e6efff !important;
+}
+
+html.dark .hotel-card {
+    background: #16223a !important;
+}
+
+html.dark .tag {
+    color: #e8f0fb !important;
+}
+
+html.dark .card-content h4 {
+    color: #e6efff !important;
+}
+
+html.dark .addr {
+    color: #a9bdd6 !important;
+}
+
+html.dark .distance {
+    color: #a0b1c7 !important;
+}
+
+html.dark .distance-text {
+    color: #a0b1c7 !important;
+}
+
+html.dark .desc {
+    color: #a9bdd6 !important;
+}
+
+html.dark .pagination-wrap .el-pager li.is-active {
+    color: #e8f0fb !important;
+}
+
+html.dark .footer-white {
+    background: #16223a !important;
+}
+
+html.dark .footer-simple {
+    color: #a7b9d1 !important;
+}
+
+html.dark .detail-wrap {
+    background: #16223a !important;
+}
+
+html.dark .info-label {
+    color: #94a6bc !important;
+}
+
+html.dark .info-value {
+    color: #dbe6f6 !important;
+}
+
+html.dark .login-card {
+    background: linear-gradient(
+        160deg,
+        rgba(21, 33, 54, 0.76) 0%,
+        rgba(21, 33, 54, 0.62) 100%
+    ) !important;
+}
+
+html.dark .avatar-icon {
+    background: #16223a !important;
+}
+
+html.dark h2 {
+    color: #e8f0fb !important;
+}
+
+html.dark .sub-title {
+    color: #94a6bc !important;
+}
+
+html.dark .field-label {
+    color: #dbe6f6 !important;
+}
+
+html.dark .info-icon {
+    color: #94a6bc !important;
+}
+
+html.dark .float-input .el-input__wrapper {
+    background: rgba(21, 33, 54, 0.6) !important;
+}
+
+html.dark .float-input .el-input__wrapper.is-focus {
+    background: #16223a !important;
+}
+
+html.dark .strength-labels {
+    color: #c1cfe1 !important;
+}
+
+html.dark .forget-dialog.el-dialog {
+    background: rgba(21, 33, 54, 0.93) !important;
+}
+
+html.dark .fd-icon {
+    color: #e8f0fb !important;
+}
+
+html.dark .forget-dialog .el-input__wrapper.is-focus {
+    background: #16223a !important;
+}
+
+html.dark .order-page {
+    background: radial-gradient(circle at 12% 12%, rgba(59, 130, 246, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(124, 58, 237, 0.10), transparent 32%),
+    linear-gradient(180deg, #1a2740 0%, #1a2740 45%, #0d1830 100%) !important;
+}
+
+html.dark .nav-header {
+    background: rgba(21, 33, 54, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11) !important;
+}
+
+html.dark .logo-text {
+    color: #e6efff !important;
+}
+
+html.dark .user-box {
+    background: #1a2740 !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+html.dark .user-name {
+    color: #e6efff !important;
+}
+
+html.dark .outer-wrap {
+    background: #16223a !important;
+}
+
+html.dark .page-title p {
+    color: #94a6bc !important;
+}
+
+html.dark .filter-card {
+    background: #16223a !important;
+}
+
+html.dark .filter-title {
+    color: #dbe6f6 !important;
+}
+
+html.dark .status-tab {
+    color: #a0b1c7 !important;
+}
+
+html.dark .status-tab.active {
+    color: #e8f0fb !important;
+}
+
+html.dark .order-card {
+    background: #16223a !important;
+}
+
+html.dark .order-id {
+    color: #90a3b9 !important;
+}
+
+html.dark .ticket-name {
+    color: #e8f0fb !important;
+}
+
+html.dark .meta {
+    color: #a0b1c7 !important;
+}
+
+html.dark .detail-item span {
+    color: #94a6bc !important;
+}
+
+html.dark .detail-item b {
+    color: #dbe6f6 !important;
+}
+
+html.dark .footer-white {
+    background: #16223a !important;
+}
+
+html.dark .footer-simple {
+    color: #a7b9d1 !important;
+}
+
+html.dark .register-card {
+    background: linear-gradient(
+        160deg,
+        rgba(21, 33, 54, 0.76) 0%,
+        rgba(21, 33, 54, 0.62) 100%
+    ) !important;
+}
+
+html.dark .avatar-icon {
+    background: #16223a !important;
+}
+
+html.dark .card-header h2 {
+    color: #e8f0fb !important;
+}
+
+html.dark .sub-title {
+    color: #94a6bc !important;
+}
+
+html.dark .field-label {
+    color: #dbe6f6 !important;
+}
+
+html.dark .info-icon {
+    color: #94a6bc !important;
+}
+
+html.dark .float-input .el-input__wrapper {
+    background: rgba(21, 33, 54, 0.6) !important;
+}
+
+html.dark .float-input .el-input__wrapper.is-focus {
+    background: #16223a !important;
+}
+
+html.dark .strength-labels {
+    color: #c1cfe1 !important;
+}
+
+html.dark .spot-page {
+    background: radial-gradient(circle at 12% 12%, rgba(59, 130, 246, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(124, 58, 237, 0.10), transparent 32%),
+    linear-gradient(180deg, #1a2740 0%, #1a2740 45%, #0d1830 100%) !important;
+}
+
+html.dark .nav-header {
+    background: rgba(21, 33, 54, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11) !important;
+}
+
+html.dark .logo-text {
+    color: #e6efff !important;
+}
+
+html.dark .user-box {
+    background: #1a2740 !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+html.dark .user-name {
+    color: #e6efff !important;
+}
+
+html.dark .spot-banner-text {
+    color: #e8f0fb !important;
+}
+
+html.dark .spot-banner-tag {
+    background: rgba(21, 33, 54, 0.22) !important;
+}
+
+html.dark .stat-num {
+    color: #e8f0fb !important;
+}
+
+html.dark .floating-card {
+    background: rgba(21, 33, 54, 0.22) !important;
+}
+
+html.dark .f-title {
+    color: #e8f0fb !important;
+}
+
+html.dark .search-card {
+    background: rgba(21, 33, 54, 0.71) !important;
+}
+
+html.dark .search-icon-wrap {
+    color: #e8f0fb !important;
+}
+
+html.dark .search-card-head h3 {
+    color: #e6efff !important;
+}
+
+html.dark .search-card-head p {
+    color: #a9bdd6 !important;
+}
+
+html.dark .search-input-item .el-input__wrapper {
+    background: #16223a !important;
+}
+
+html.dark .btn-reset {
+    background: #16223a !important;
+    color: #bccde2 !important;
+}
+
+html.dark .category-title {
+    color: #bccde2 !important;
+}
+
+html.dark .tag-row .el-tag {
+    background-color: #16223a !important;
+    color: #bccde2 !important;
+}
+
+html.dark .tag-row .el-tag.is-active {
+    color: #e8f0fb !important;
+}
+
+html.dark .result-title h3 {
+    color: #e6efff !important;
+}
+
+html.dark .result-count {
+    color: #a9bdd6 !important;
+}
+
+html.dark .spot-card {
+    background: #16223a !important;
+}
+
+html.dark .card-tag {
+    color: #e8f0fb !important;
+}
+
+html.dark .price-tag {
+    background: rgba(21, 33, 54, 0.89) !important;
+    color: #e6efff !important;
+}
+
+html.dark .card-body h4 {
+    color: #e6efff !important;
+}
+
+html.dark .addr {
+    color: #a9bdd6 !important;
+}
+
+html.dark .desc {
+    color: #a9bdd6 !important;
+}
+
+html.dark .detail-btn {
+    color: #e8f0fb !important;
+}
+
+html.dark .empty-state {
+    color: #a9bdd6 !important;
+}
+
+html.dark .empty-state .el-icon {
+    color: #a3b3c6 !important;
+}
+
+html.dark .pagination .el-pager li.is-active {
+    color: #e8f0fb !important;
+}
+
+html.dark .footer-card {
+    background: #16223a !important;
+}
+
+html.dark .city-item {
+    background: #16223a !important;
+}
+
+html.dark .footer-copyright {
+    color: #a3b3c6 !important;
+}
+
+html.dark .detail-card {
+    background: #16223a !important;
+}
+
+html.dark .hero-empty {
+    color: #a3b3c6 !important;
+}
+
+html.dark .hero-info {
+    color: #e8f0fb !important;
+}
+
+html.dark .hero-tag {
+    background: rgba(21, 33, 54, 0.24) !important;
+}
+
+html.dark .info-card-icon {
+    color: #e8f0fb !important;
+}
+
+html.dark .info-card-label {
+    color: #a7b9d1 !important;
+}
+
+html.dark .info-card-value {
+    color: #e6efff !important;
+}
+
+html.dark .desc-title h3 {
+    color: #e6efff !important;
+}
+
+html.dark .loading-text,
+html.dark .empty-tip {
+    color: #a0b1c7 !important;
+}
+
+html.dark .ticket-page {
+    background: radial-gradient(circle at 12% 12%, rgba(59, 130, 246, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(124, 58, 237, 0.10), transparent 32%),
+    linear-gradient(180deg, #1a2740 0%, #1a2740 45%, #0d1830 100%) !important;
+}
+
+html.dark .nav-header {
+    background: rgba(21, 33, 54, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11) !important;
+}
+
+html.dark .logo-text {
+    color: #e6efff !important;
+}
+
+html.dark .user-box {
+    background: #1a2740 !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+html.dark .user-name {
+    color: #e6efff !important;
+}
+
+html.dark .title-text h2 {
+    color: #e6efff !important;
+}
+
+html.dark .title-text p {
+    color: #a9bdd6 !important;
+}
+
+html.dark .search-card {
+    background: rgba(21, 33, 54, 0.8) !important;
+}
+
+html.dark .search-title {
+    color: #e6efff !important;
+}
+
+html.dark .filter-item label {
+    color: #dbe6f6 !important;
+}
+
+html.dark .list-head h2 {
+    color: #e6efff !important;
+}
+
+html.dark .ticket-card {
+    background: #16223a !important;
+}
+
+html.dark .card-tag {
+    color: #e8f0fb !important;
+}
+
+html.dark .card-ticket-icon {
+    color: #e8f0fb !important;
+}
+
+html.dark .ticket-name {
+    color: #e8f0fb !important;
+}
+
+html.dark .old-price {
+    color: #90a3b9 !important;
+}
+
+html.dark .valid-text {
+    color: #a0b1c7 !important;
+}
+
+html.dark .desc {
+    color: #a0b1c7 !important;
+}
+
+html.dark .stock {
+    color: #94a6bc !important;
+}
+
+html.dark .pagination-wrap .el-pager li.is-active {
+    color: #e8f0fb !important;
+}
+
+html.dark .tip-text {
+    color: #94a6bc !important;
+}
+
+html.dark .footer-white {
+    background: #16223a !important;
+}
+
+html.dark .footer-simple {
+    color: #a7b9d1 !important;
+}
+
+/* ============================================================
+ * Element Plus 深色覆盖（表格、弹窗、输入框、分页、下拉等）
+ * ============================================================ */
+
+html.dark {
+    color-scheme: dark;
+    background: #0b1322;
+}
+
+html.dark body {
+    background: #0b1322 !important;
+    color: #c9d8ea !important;
+}
+
+/* 页面壳：深蓝夜色弥散光 */
+html.dark .home-page,
+html.dark .spot-page,
+html.dark .guide-page,
+html.dark .hotel-page,
+html.dark .ticket-page,
+html.dark .order-page {
+    background:
+        radial-gradient(circle at 12% 12%, rgba(59, 130, 246, 0.16), transparent 30%),
+        radial-gradient(circle at 88% 18%, rgba(124, 58, 237, 0.14), transparent 34%),
+        linear-gradient(180deg, #0e1a2c 0%, #0b1526 45%, #0a1220 100%) !important;
+    color: #c9d8ea !important;
+}
+
+/* 顶部导航：深色玻璃 */
+html.dark .nav-header {
+    background: rgba(13, 21, 36, 0.88) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 输入框 / 文本域 / 下拉框 */
+html.dark .el-input__wrapper,
+html.dark .el-textarea__inner,
+html.dark .el-select__wrapper {
+    background-color: #16223a !important;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset !important;
+}
+html.dark .el-input__inner,
+html.dark .el-textarea__inner,
+html.dark .el-select__placeholder,
+html.dark .el-select__selected-item {
+    color: #dbe8fa !important;
+}
+html.dark .el-input__inner::placeholder,
+html.dark .el-textarea__inner::placeholder,
+html.dark .el-select__placeholder.is-transparent {
+    color: #7c8fa8 !important;
+}
+html.dark .el-input__prefix,
+html.dark .el-input__suffix {
+    color: #8fa2b8 !important;
+}
+html.dark .el-input.is-disabled .el-input__wrapper,
+html.dark .el-textarea.is-disabled .el-textarea__inner {
+    background-color: #121d31 !important;
+}
+html.dark .el-input__inner::-webkit-outer-spin-button,
+html.dark .el-input__inner::-webkit-inner-spin-button {
+    filter: invert(1);
+}
+
+/* 默认按钮（不碰页面里自定义的彩色按钮） */
+html.dark .el-button:not([class*="btn-"]):not([class*="buy"]):not(.el-button--primary):not(.el-button--success):not(.el-button--warning):not(.el-button--danger) {
+    background-color: #1a2740 !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #cfe0f5 !important;
+}
+
+/* 弹窗 / 抽屉 / 确认框 */
+html.dark .el-dialog,
+html.dark .el-message-box,
+html.dark .el-drawer {
+    background: #16223a !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    color: #dbe8fa !important;
+}
+html.dark .el-dialog__title,
+html.dark .el-message-box__title {
+    color: #e6efff !important;
+}
+html.dark .el-overlay,
+html.dark .el-loading-mask {
+    background-color: rgba(4, 8, 16, 0.72) !important;
+}
+
+/* 表格（后台管理页） */
+html.dark .el-table {
+    background-color: #16223a !important;
+    color: #cfe0f5 !important;
+    --el-table-border-color: rgba(255, 255, 255, 0.08);
+    --el-table-bg-color: #16223a;
+    --el-table-tr-bg-color: #16223a;
+    --el-table-header-bg-color: #1a2740;
+    --el-table-row-hover-bg-color: #1e2d49;
+}
+html.dark .el-table th.el-table__cell {
+    background-color: #1a2740 !important;
+    color: #dbe8fa !important;
+}
+html.dark .el-table tr,
+html.dark .el-table__body td.el-table__cell {
+    background-color: #16223a !important;
+}
+html.dark .el-table__empty-text {
+    color: #8fa2b8 !important;
+}
+
+/* 分页 */
+html.dark .el-pagination {
+    --el-pagination-bg-color: #1a2740;
+    --el-pagination-button-bg-color: #1a2740;
+    color: #cfe0f5;
+}
+html.dark .el-pager li,
+html.dark .el-pagination button {
+    background-color: #1a2740 !important;
+    color: #cfe0f5 !important;
+}
+
+/* 下拉面板 / 气泡 */
+html.dark .el-dropdown-menu,
+html.dark .el-select-dropdown,
+html.dark .el-popper,
+html.dark .el-picker-panel {
+    background: #16223a !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark .el-dropdown-menu__item,
+html.dark .el-select-dropdown__item,
+html.dark .el-picker-panel__content {
+    color: #cfe0f5 !important;
+}
+html.dark .el-select-dropdown__item.is-hovering,
+html.dark .el-dropdown-menu__item:hover {
+    background: #1e2d49 !important;
+}
+
+/* 表单标签、描述、空状态 */
+html.dark .el-form-item__label,
+html.dark .el-descriptions__label,
+html.dark .el-tag,
+html.dark .el-empty__description p {
+    color: #bccde2 !important;
+}
+html.dark .el-divider {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 后台侧边菜单 */
+html.dark .el-menu {
+    --el-menu-bg-color: transparent;
+    --el-menu-text-color: #cfe0f5;
+    --el-menu-hover-bg-color: #1c2a44;
+    --el-menu-active-color: #7cc4ca;
+}
+
+/* 分页 / 标签页里的浅灰文字统一提亮 */
+html.dark .el-tabs__item {
+    color: #bccde2 !important;
+}
+
+/* 滚动条 */
+html.dark ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+html.dark ::-webkit-scrollbar-track {
+    background: #0b1322;
+}
+html.dark ::-webkit-scrollbar-thumb {
+    background: #24344f;
+    border-radius: 8px;
+}
+
+/* 登录 / 注册页：照片压得更暗，卡片换成夜色玻璃 */
+html.dark .auth-bg::before {
+    filter: blur(2px) brightness(0.58) saturate(0.98) !important;
+}
+html.dark .auth-mask {
+    background:
+        radial-gradient(120% 95% at 50% 48%, rgba(4, 8, 16, 0.22) 0%, rgba(4, 8, 16, 0.52) 65%, rgba(2, 5, 12, 0.66) 100%),
+        linear-gradient(180deg, rgba(3, 7, 14, 0.55) 0%, rgba(3, 7, 14, 0.30) 42%, rgba(3, 7, 14, 0.58) 100%) !important;
+}
+html.dark .login-card,
+html.dark .register-card {
+    background: linear-gradient(150deg, rgba(20, 31, 52, 0.86) 0%, rgba(14, 23, 38, 0.72) 100%) !important;
+    border-color: rgba(124, 196, 202, 0.28) !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* 联想面板在深色下换成夜色玻璃 */
+html.dark .ac-panel {
+    background: rgba(22, 34, 58, 0.96) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark .ac-item.is-active,
+html.dark .ac-item:hover {
+    background: #1e2d49 !important;
+    color: #e6efff !important;
+}
+
+/* ============================================================
+ * 主题切换：以按钮为圆心扩散
+ * ============================================================ */
+
+html.theme-revealing::view-transition-old(root),
+html.theme-revealing::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+html.theme-revealing::view-transition-new(root) {
+    animation: theme-reveal 0.55s cubic-bezier(0.42, 0.05, 0.2, 1) forwards;
+}
+
+@keyframes theme-reveal {
+    from {
+        clip-path: circle(0 at var(--tt-x, 100%) var(--tt-y, 100%));
+    }
+    to {
+        clip-path: circle(var(--tt-r, 150vmax) at var(--tt-x, 100%) var(--tt-y, 100%));
+    }
+}
+
+/* ============================================================
+ * 年月日滚轮选择器（WheelDatePicker）深色适配
+ * ============================================================ */
+
+html.dark .wd-trigger {
+    background: #16223a !important;
+    border-color: rgba(255, 255, 255, 0.10) !important;
+}
+html.dark .wd-trigger:hover {
+    border-color: rgba(14, 124, 134, 0.55) !important;
+}
+html.dark .wd-value {
+    color: #dbe8fa !important;
+}
+html.dark .wd-trigger.is-empty .wd-value {
+    color: #7c8fa8 !important;
+}
+html.dark .wd-arrow {
+    color: #8fa2b8 !important;
+}
+
+html.dark .wd-panel {
+    background: #16223a !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.55) !important;
+}
+html.dark .wd-title {
+    color: #e6efff !important;
+}
+html.dark .wd-preview {
+    color: #94a6bc !important;
+}
+html.dark .wd-item {
+    color: #9fb0c6 !important;
+}
+html.dark .wd-item.is-active {
+    color: #e6efff !important;
+}
+html.dark .wd-band {
+    background: linear-gradient(180deg, rgba(14, 124, 134, 0.14), rgba(14, 124, 134, 0.22)) !important;
+}
+html.dark .wd-fade.top {
+    background: linear-gradient(180deg, #16223a 10%, rgba(22, 34, 58, 0)) !important;
+}
+html.dark .wd-fade.bottom {
+    background: linear-gradient(0deg, #16223a 10%, rgba(22, 34, 58, 0)) !important;
+}
+html.dark .wd-label {
+    color: #7c8fa8 !important;
+}
+html.dark .wd-btn.ghost {
+    background: #1a2740 !important;
+    border-color: rgba(255, 255, 255, 0.10) !important;
+    color: #bccde2 !important;
+}
+html.dark .wd-btn.ghost:hover {
+    background: #1e2d49 !important;
+    color: #e6efff !important;
+}
+
+/* ============================================================
+ * 收银台 / 滑动支付 深色适配
+ * ============================================================ */
+
+html.dark .pay-page {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(59, 130, 246, 0.18), transparent 30%),
+        radial-gradient(circle at 88% 12%, rgba(124, 58, 237, 0.16), transparent 34%),
+        linear-gradient(180deg, #0e1a2c 0%, #0b1526 45%, #0a1220 100%) !important;
+}
+
+html.dark .pay-card {
+    background: rgba(22, 34, 58, 0.92) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.dark .pay-top-title,
+html.dark .info-value,
+html.dark .method-name,
+html.dark .method-title {
+    color: #e6efff !important;
+}
+
+html.dark .amount-label,
+html.dark .amount-sub,
+html.dark .pay-top-right,
+html.dark .info-label,
+html.dark .pay-tip {
+    color: #94a6bc !important;
+}
+
+html.dark .pay-info {
+    background: #1a2740 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .back-btn {
+    background: rgba(22, 34, 58, 0.86) !important;
+    border-color: rgba(255, 255, 255, 0.10) !important;
+    color: #bccde2 !important;
+}
+html.dark .back-btn:hover {
+    color: #7cc4ca !important;
+    border-color: rgba(14, 124, 134, 0.5) !important;
+}
+
+html.dark .method {
+    background: #16223a !important;
+    border-color: rgba(255, 255, 255, 0.10) !important;
+}
+html.dark .method:not(.active):hover {
+    border-color: rgba(14, 124, 134, 0.45) !important;
+}
+html.dark .method.active {
+    background: #1e2d49 !important;
+    border-color: #0e7c86 !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4) !important;
+}
+html.dark .method-check {
+    border-color: rgba(255, 255, 255, 0.24) !important;
+}
+html.dark .method.active .method-check {
+    background: #0e7c86 !important;
+    border-color: #0e7c86 !important;
+    color: #fff !important;
+}
+
+html.dark .stp-track {
+    background: rgba(26, 39, 64, 0.95) !important;
+    border-color: rgba(255, 255, 255, 0.10) !important;
+}
+html.dark .stp-label {
+    color: #bccde2 !important;
+}
+html.dark .stp-chevrons b {
+    color: #6f9bd4 !important;
+}
+html.dark .stp-thumb {
+    background: #24344f !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+}
+html.dark .stp.is-success .stp-thumb {
+    background: #ffffff !important;
+}
+
+/* ============================================================
+ * 数字输入框（NumberStepper）深色适配
+ * ============================================================ */
+
+html.dark .ns {
+    background: #16223a !important;
+    border-color: rgba(255, 255, 255, 0.10) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+}
+
+html.dark .ns-btn {
+    background: #1b2a44 !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #bccde2 !important;
+}
+
+html.dark .ns-btn:hover:not(:disabled) {
+    background: #223454 !important;
+    border-color: rgba(14, 124, 134, 0.55) !important;
+    color: #7cc4ca !important;
+}
+
+html.dark .ns-value {
+    background: #1f2f4c !important;
+    border-color: rgba(255, 255, 255, 0.10) !important;
+    color: #e6efff !important;
+}
+
+html.dark .ns-input:focus {
+    border-color: rgba(14, 124, 134, 0.6) !important;
+    background: #223454 !important;
+    box-shadow: 0 0 0 2px rgba(14, 124, 134, 0.18) !important;
+}
+
+/* 后台景点/住宿卡片视图（深色主题） */
+html.dark .spot-card,
+html.dark .hotel-card {
+    background: #1a2740 !important;
+    border-color: rgba(255, 255, 255, 0.10) !important;
+}
+html.dark .spot-card-body h3,
+html.dark .hotel-card-body h3 {
+    color: #e8f1ff !important;
+}
+html.dark .spot-meta,
+html.dark .hotel-addr {
+    color: #8ea6c6 !important;
+}
+html.dark .spot-desc,
+html.dark .hotel-desc {
+    color: #9fb3cd !important;
+}
+html.dark .spot-card-cover,
+html.dark .hotel-card-cover {
+    background: #223454 !important;
+}
+html.dark .spot-empty,
+html.dark .hotel-empty {
+    color: #8ea6c6 !important;
+}

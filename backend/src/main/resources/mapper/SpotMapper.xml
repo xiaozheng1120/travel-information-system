@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.mapper.SpotMapper">
+    <select id="selectSpotList" resultType="com.travel.entity.Spot">
+        SELECT * FROM spot
+        <where>
+            <if test="spot.name != null and spot.name != ''">
+                name LIKE CONCAT('%',#{spot.name},'%')
+            </if>
+            <!-- 修改：使用categoryId筛选，不再用categoryName -->
+            <if test="spot.categoryId != null and spot.categoryId != ''">
+                categoryId = #{spot.categoryId}
+            </if>
+        </where>
+        LIMIT #{start}, #{pageSize}
+    </select>
+    <select id="countSpot" resultType="int">
+        SELECT COUNT(*) FROM spot
+        <where>
+            <if test="spot.name != null and spot.name != ''">
+                name LIKE CONCAT('%',#{spot.name},'%')
+            </if>
+            <if test="spot.categoryId != null and spot.categoryId != ''">
+                categoryId = #{spot.categoryId}
+            </if>
+        </where>
+    </select>
+    <!-- 新增字段 categoryId，插入时同时保存分类ID和分类名称，追加description，新增详情信息卡字段 -->
+    <insert id="insertSpot" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO spot(name,area,price,openTime,playTime,level,tags,categoryId,categoryName,`desc`,img,status,description)
+        VALUES(#{name},#{area},#{price},#{openTime},#{playTime},#{level},#{tags},#{categoryId},#{categoryName},#{desc},#{img},#{status},#{description})
+    </insert>
+    <!-- 更新语句增加 categoryId，追加description与详情信息卡字段更新 -->
+    <update id="updateSpot">
+        UPDATE spot SET
+        name=#{name},
+        area=#{area},
+        price=#{price},
+        openTime=#{openTime},
+        playTime=#{playTime},
+        level=#{level},
+        tags=#{tags},
+        categoryId=#{categoryId},
+        categoryName=#{categoryName},
+        `desc`=#{desc},
+        img=#{img},
+        status=#{status},
+        description=#{description}
+        WHERE id=#{id}
+    </update>
+    <delete id="deleteSpotById">
+        DELETE FROM spot WHERE id=#{id}
+    </delete>
+    <select id="selectAllSpot" resultType="com.travel.entity.Spot">
+        SELECT * FROM spot
+    </select>
+    <!-- 后台首页统计景点总条数（无筛选条件） -->
+    <select id="countAllSpot" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM spot
+    </select>
+    <!-- 新增：根据id查询景点，详情页使用（含详情信息卡字段） -->
+    <select id="selectSpotById" resultType="com.travel.entity.Spot">
+        SELECT id,name,area,price,openTime,playTime,level,tags,categoryId,categoryName,`desc`,img,status,description
+        FROM spot
+        WHERE id = #{id}
+    </select>
+    <!-- 新增：景点名称搜索联想 -->
+    <select id="selectNamesByKeyword" resultType="java.lang.String">
+        SELECT name FROM spot
+        <where>
+            <if test="keyword != null and keyword != ''">
+                name LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+        </where>
+        ORDER BY id DESC
+        LIMIT 10
+    </select>
+    <!-- 新增：景点地区搜索联想（去重） -->
+    <select id="selectAreasByKeyword" resultType="java.lang.String">
+        SELECT DISTINCT area FROM spot
+        WHERE area IS NOT NULL AND area != ''
+        <if test="keyword != null and keyword != ''">
+            AND area LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        ORDER BY area
+        LIMIT 10
+    </select>
+</mapper>

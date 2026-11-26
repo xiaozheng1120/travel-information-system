@@ -1,0 +1,122 @@
+/* ============================================================
+ * 边缘流光（Edge Beam）
+ * 卡片 / 按钮描边上有一道匀速绕行的光，页面无多余元素，
+ * 只靠 ::before（1.5px 光带）+ ::after（柔和外发光）实现。
+ * 用法：给元素加 class="edge-beam"，
+ *      需要把文字按钮改成胶囊样式时再加 edge-beam--pill
+ * ============================================================ */
+
+@property --beam-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.edge-beam {
+    position: relative;
+    isolation: isolate;
+    /* 可在使用处覆盖：速度 / 光色 */
+    --beam-speed: 3.4s;
+    --beam-c1: #fff3cf;
+    --beam-c2: #ffc559;
+    --beam-c3: #ff8a3d;
+}
+
+.edge-beam::before,
+.edge-beam::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    border-radius: inherit;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* 1.5px 的绕行光带 */
+.edge-beam::before {
+    inset: -1.5px;
+    padding: 1.5px;
+    background: conic-gradient(from var(--beam-angle),
+            rgba(255, 255, 255, 0) 0deg,
+            rgba(255, 255, 255, 0) 198deg,
+            var(--beam-c1) 252deg,
+            var(--beam-c2) 288deg,
+            var(--beam-c3) 318deg,
+            rgba(255, 255, 255, 0) 352deg);
+    animation: edge-beam-spin var(--beam-speed) linear infinite;
+    z-index: 1;
+}
+
+/* 柔和外发光，让边缘更像“流光”而不是描边 */
+.edge-beam::after {
+    inset: -3px;
+    padding: 3px;
+    background: conic-gradient(from var(--beam-angle),
+            rgba(255, 255, 255, 0) 0deg,
+            rgba(255, 255, 255, 0) 210deg,
+            var(--beam-c2) 270deg,
+            var(--beam-c3) 310deg,
+            rgba(255, 255, 255, 0) 352deg);
+    filter: blur(5px);
+    opacity: 0.5;
+    animation: edge-beam-spin var(--beam-speed) linear infinite;
+    z-index: -1;
+}
+
+@keyframes edge-beam-spin {
+    to {
+        --beam-angle: 360deg;
+    }
+}
+
+/* ---------- 冷色光（适合蓝底 / 深色底的按钮） ---------- */
+.edge-beam--cool {
+    --beam-c1: #dff1ff;
+    --beam-c2: #7fc4ff;
+    --beam-c3: #7b61ff;
+}
+
+/* ---------- 文字按钮改成胶囊 + 流光 ---------- */
+.edge-beam--pill {
+    border-radius: 999px !important;
+    padding: 6px 16px !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    color: #2b4a72 !important;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    box-shadow: 0 6px 16px rgba(31, 58, 95, 0.10);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edge-beam--pill:hover {
+    transform: translateY(-1px);
+    background: #fff !important;
+    box-shadow: 0 10px 22px rgba(31, 58, 95, 0.16);
+}
+
+html.dark .edge-beam--pill {
+    background: rgba(22, 34, 58, 0.92) !important;
+    color: #dbe9ff !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .edge-beam--pill:hover {
+    background: rgba(28, 42, 70, 0.96) !important;
+}
+
+/* 深色页面里把光调亮一点，才看得清 */
+html.dark .edge-beam {
+    --beam-c1: #fff8e2;
+    --beam-c2: #ffd27a;
+    --beam-c3: #ffa05a;
+}
+
+/* 低性能 / 减少动效偏好：保留静态光斑，不绕圈 */
+@media (prefers-reduced-motion: reduce) {
+    .edge-beam::before,
+    .edge-beam::after {
+        animation: none;
+    }
+}

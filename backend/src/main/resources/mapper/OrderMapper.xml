@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.mapper.OrderMapper">
+    <!--新增订单-->
+    <insert id="insertOrder">
+        INSERT INTO `order` (orderNo,userId,ticketId,orderType,hotelId,`count`,status,createTime,travelDate,totalPrice,person_name,phone)
+        VALUES(#{orderNo},#{userId},#{ticketId},#{orderType},#{hotelId},#{count},#{status},#{createTime},#{travelDate},#{totalPrice},#{personName},#{phone})
+    </insert>
+
+    <update id="updateOrder">
+        UPDATE `order`
+        <set>
+            <if test="count != null">`count` = #{count},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="travelDate != null">travelDate = #{travelDate},</if>
+            <if test="totalPrice != null">totalPrice = #{totalPrice}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!--删除订单-->
+    <delete id="deleteOrder">
+        DELETE FROM `order` WHERE id = #{id}
+    </delete>
+
+    <!-- 查询“待出行”时排除已过期订单：门票按出行当天结束，住宿按退房当天结束 -->
+    <sql id="excludeExpiredCondition">
+        <if test="order.excludeExpired != null and order.excludeExpired">
+            AND (
+                (o.orderType = 1 AND o.travelDate &gt;= CURDATE())
+                OR (o.orderType = 2 AND DATE_ADD(o.travelDate, INTERVAL GREATEST(COALESCE(o.`count`, 1), 1) DAY) &gt;= CURDATE())
+            )
+        </if>
+    </sql>
+
+    <!--分页查询订单列表：联表查询获取门票名称，增加字段别名适配实体驼峰-->
+    <select id="selectOrderList" resultType="com.travel.entity.Order">
+        SELECT
+        o.id,
+        o.orderNo,
+        o.userId,
+        o.ticketId,
+        o.orderType,
+        o.hotelId,
+        o.`count`,
+        o.status,
+        o.createTime,
+        o.travelDate,
+        o.totalPrice,
+        o.person_name AS personName,
+        o.phone AS phone,
+        COALESCE(t.name, h.name, '') AS ticketName,
+        h.name AS hotelName
+        FROM `order` o
+        LEFT JOIN ticket t ON o.ticketId = t.id
+        LEFT JOIN hotel h ON o.hotelId = h.id
+        <where>
+            <if test="order.orderNo != null and order.orderNo != ''">
+                AND o.orderNo LIKE CONCAT('%',#{order.orderNo},'%')
+            </if>
+            <if test="order.userId != null">
+                AND o.userId = #{order.userId}
+            </if>
+            <if test="order.orderType != null">
+                AND o.orderType = #{order.orderType}
+            </if>
+            <if test="order.status != null">
+                AND o.status = #{order.status}
+            </if>
+            <include refid="excludeExpiredCondition"/>
+            <if test="order.startDate != null and order.startDate != ''">
+                AND o.createTime &gt;= #{order.startDate}
+            </if>
+            <if test="order.endDate != null and order.endDate != ''">
+                AND o.createTime &lt; DATE_ADD(#{order.endDate}, INTERVAL 1 DAY)
+            </if>
+        </where>
+        ORDER BY o.id DESC
+        LIMIT #{start}, #{pageSize}
+    </select>
+
+    <!--统计订单总数【这里也加上联表，保持一致】-->
+    <select id="countOrder" resultType="int">
+        SELECT COUNT(*)
+        FROM `order` o
+        LEFT JOIN ticket t ON o.ticketId = t.id
+        <where>
+            <if test="order.orderNo != null and order.orderNo != ''">
+                AND o.orderNo LIKE CONCAT('%',#{order.orderNo},'%')
+            </if>
+            <if test="order.userId != null">
+                AND o.userId = #{order.userId}
+            </if>
+            <if test="order.orderType != null">
+                AND o.orderType = #{order.orderType}
+            </if>
+            <if test="order.status != null">
+                AND o.status = #{order.status}
+            </if>
+            <include refid="excludeExpiredCondition"/>
+            <if test="order.startDate != null and order.startDate != ''">
+                AND o.createTime &gt;= #{order.startDate}
+            </if>
+            <if test="order.endDate != null and order.endDate != ''">
+                AND o.createTime &lt; DATE_ADD(#{order.endDate}, INTERVAL 1 DAY)
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据id查询订单，用于核销、取消订单功能，同样加上别名 -->
+    <select id="selectById" resultType="com.travel.entity.Order">
+        SELECT
+        o.id,
+        o.orderNo,
+        o.userId,
+        o.ticketId,
+        o.orderType,
+        o.hotelId,
+        o.`count`,
+        o.status,
+        o.createTime,
+        o.travelDate,
+        o.totalPrice,
+        o.person_name AS personName,
+        o.phone AS phone,
+        COALESCE(t.name, h.name, '') AS ticketName,
+        h.name AS hotelName
+        FROM `order` o
+        LEFT JOIN ticket t ON o.ticketId = t.id
+        LEFT JOIN hotel h ON o.hotelId = h.id
+        WHERE o.id = #{id}
+    </select>
+</mapper>

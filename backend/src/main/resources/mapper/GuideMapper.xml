@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.mapper.GuideMapper">
+
+    <select id="selectGuideList" resultType="com.travel.entity.Guide">
+        SELECT * FROM guide
+        <where>
+            <if test="guide.title != null and guide.title != ''">
+                title LIKE CONCAT('%',#{guide.title},'%')
+            </if>
+            <if test="guide.author != null and guide.author != ''">
+                author LIKE CONCAT('%',#{guide.author},'%')
+            </if>
+            <if test="guide.category != null and guide.category != ''">
+                category = #{guide.category}
+            </if>
+        </where>
+        <!-- 置顶攻略优先，其余按 id 升序 -->
+        ORDER BY isFixed DESC, id ASC
+        LIMIT #{start}, #{pageSize}
+    </select>
+
+    <select id="countGuide" resultType="int">
+        SELECT COUNT(*) FROM guide
+        <where>
+            <if test="guide.title != null and guide.title != ''">
+                title LIKE CONCAT('%',#{guide.title},'%')
+            </if>
+            <if test="guide.author != null and guide.author != ''">
+                author LIKE CONCAT('%',#{guide.author},'%')
+            </if>
+            <if test="guide.category != null and guide.category != ''">
+                category = #{guide.category}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertGuide" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO guide(title,author,views,rating,category,content,img,avatar,date,isFixed,isRecommend)
+        VALUES(#{title},#{author},#{views},#{rating},#{category},#{content},#{img},#{avatar},#{date},#{isFixed},COALESCE(#{isRecommend},0))
+    </insert>
+
+    <update id="updateGuide">
+        UPDATE guide
+        SET title=#{title},
+        author=#{author},
+        rating=#{rating},
+        category=#{category},
+        content=#{content},
+        img=#{img},
+        avatar=#{avatar},
+        date=#{date},
+        isFixed=#{isFixed},
+        isRecommend=COALESCE(#{isRecommend},0)
+        WHERE id=#{id}
+    </update>
+
+    <!-- 新增：详情页浏览量 +1 -->
+    <update id="increaseViews">
+        UPDATE guide SET views = views + 1 WHERE id = #{id}
+    </update>
+
+    <delete id="deleteGuideById">
+        DELETE FROM guide WHERE id=#{id}
+    </delete>
+
+    <select id="selectGuideById" resultType="com.travel.entity.Guide">
+        SELECT * FROM guide WHERE id = #{id}
+    </select>
+
+    <!-- 新增：攻略标题搜索联想 -->
+    <select id="selectTitlesByKeyword" resultType="java.lang.String">
+        SELECT title FROM guide
+        <where>
+            <if test="keyword != null and keyword != ''">
+                title LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+        </where>
+        ORDER BY id DESC
+        LIMIT 10
+    </select>
+    <!-- 新增：攻略作者搜索联想（去重） -->
+    <select id="selectAuthorsByKeyword" resultType="java.lang.String">
+        SELECT DISTINCT author FROM guide
+        WHERE author IS NOT NULL AND author != ''
+        <if test="keyword != null and keyword != ''">
+            AND author LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        ORDER BY author
+        LIMIT 10
+    </select>
+
+</mapper>

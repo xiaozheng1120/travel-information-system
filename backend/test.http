@@ -1,0 +1,25 @@
+### 用户注册
+POST http://localhost:8080/user/register
+Content-Type: application/json
+{
+  "username":"user01",
+  "password":"123456",
+  "nickname":"旅游爱好者"
+}
+
+### 用户登录
+POST http://localhost:8080/user/login
+Content-Type: application/x-www-form-urlencoded
+username=user01&password=123456
+
+### 根据id获取用户信息
+GET http://localhost:8080/user/getById?id=1
+
+### 修改个人资料
+PUT http://localhost:8080/user/updateInfo
+Content-Type: application/json
+{
+  "id":1,
+  "nickname":"新昵称",
+  "avatar":"https://test.jpg"
+}

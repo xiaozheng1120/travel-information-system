@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.mapper.UserMapper">
+    <!-- 统一用户字段 -->
+    <sql id="userColumns">
+        id,username,password,name,phone,role,avatar,status,lastLoginTime,loginCount
+    </sql>
+
+    <!-- 根据用户名查询用户（登录用） -->
+    <select id="findUserByUsername" resultType="com.travel.entity.User">
+        SELECT <include refid="userColumns"/>
+        FROM user
+        WHERE username = #{username}
+    </select>
+
+    <!-- 根据id查询用户 -->
+    <select id="findUserById" resultType="com.travel.entity.User">
+        SELECT <include refid="userColumns"/>
+        FROM user
+        WHERE id = #{id}
+    </select>
+
+    <!-- 新增用户 -->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user(username,password,name,phone,role,avatar,status,loginCount)
+        VALUES(#{username},#{password},#{name},#{phone},#{role},#{avatar},1,0)
+    </insert>
+
+    <!-- 修改用户 -->
+    <update id="updateUser">
+        UPDATE user
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="role != null">role = #{role},</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="status != null">status = #{status},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 启用 / 禁用 -->
+    <update id="updateStatus">
+        UPDATE user SET status = #{status} WHERE id = #{id}
+    </update>
+
+    <!-- 登录成功后累加次数并更新最近登录时间 -->
+    <update id="recordLogin">
+        UPDATE user
+        SET loginCount = loginCount + 1,
+            lastLoginTime = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <!-- 删除用户 -->
+    <delete id="deleteById">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
+
+    <!-- 查询全部用户 -->
+    <select id="selectAll" resultType="com.travel.entity.User">
+        SELECT <include refid="userColumns"/>
+        FROM user
+    </select>
+
+    <!-- 按角色 / 关键词筛选 -->
+    <select id="selectByCondition" resultType="com.travel.entity.User">
+        SELECT <include refid="userColumns"/>
+        FROM user
+        <where>
+            <if test="role != null and role != ''">
+                AND role = #{role}
+            </if>
+            <if test="keyword != null and keyword != ''">
+                AND (username LIKE CONCAT('%', #{keyword}, '%')
+                     OR name LIKE CONCAT('%', #{keyword}, '%')
+                     OR phone LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+        </where>
+        ORDER BY id ASC
+    </select>
+
+    <select id="countUserAll" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM `user`
+    </select>
+</mapper>

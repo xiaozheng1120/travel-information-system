@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.mapper.TicketMapper">
+
+    <select id="selectTicketList" resultType="com.travel.entity.Ticket">
+        SELECT * FROM ticket
+        <where>
+            <if test="ticket.name != null and ticket.name != ''">
+                name LIKE CONCAT('%',#{ticket.name},'%')
+            </if>
+            <if test="ticket.spot != null and ticket.spot != ''">
+                spot = #{ticket.spot}
+            </if>
+            <if test="ticket.type != null and ticket.type != ''">
+                type = #{ticket.type}
+            </if>
+        </where>
+        ORDER BY id ASC
+        LIMIT #{start}, #{pageSize}
+    </select>
+
+    <select id="countTicket" resultType="int">
+        SELECT COUNT(*) FROM ticket
+        <where>
+            <if test="ticket.name != null and ticket.name != ''">
+                name LIKE CONCAT('%',#{ticket.name},'%')
+            </if>
+            <if test="ticket.spot != null and ticket.spot != ''">
+                spot = #{ticket.spot}
+            </if>
+            <if test="ticket.type != null and ticket.type != ''">
+                type = #{ticket.type}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectTicketById" resultType="com.travel.entity.Ticket">
+        select * from ticket where id = #{id}
+    </select>
+
+    <insert id="insertTicket" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO ticket(name,spot,type,priceNow,priceOld,validDesc,`desc`,stock)
+        VALUES(#{name},#{spot},#{type},#{priceNow},#{priceOld},#{validDesc},#{desc},#{stock})
+    </insert>
+
+    <update id="updateTicket">
+        UPDATE ticket
+        SET name=#{name},spot=#{spot},type=#{type},priceNow=#{priceNow},
+        priceOld=#{priceOld},validDesc=#{validDesc},`desc`=#{desc},stock=#{stock}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="deleteTicket">
+        DELETE FROM ticket WHERE id = #{id}
+    </delete>
+
+    <!-- 扣减库存（下单用，原子更新，防止超卖） -->
+    <update id="updateStock">
+        UPDATE ticket
+        SET stock = stock - #{num}
+        WHERE id = #{ticketId} AND stock >= #{num}
+    </update>
+
+    <!-- 订单取消，返还库存 -->
+    <update id="addStock">
+        UPDATE ticket
+        SET stock = stock + #{num}
+        WHERE id = #{ticketId}
+    </update>
+
+    <!-- 新增：门票名称搜索联想 -->
+    <select id="selectNamesByKeyword" resultType="java.lang.String">
+        SELECT name FROM ticket
+        <where>
+            <if test="keyword != null and keyword != ''">
+                name LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+        </where>
+        ORDER BY id DESC
+        LIMIT 10
+    </select>
+
+</mapper>

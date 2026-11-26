@@ -1,0 +1,20 @@
+# Java
+target/
+*.class
+*.log
+.idea/
+*.iml
+
+# Node
+node_modules/
+dist/
+.vite/
+.vscode/
+
+# 本地上传文件
+uploads/
+
+# 本地环境文件
+.env
+.DS_Store
+Thumbs.db

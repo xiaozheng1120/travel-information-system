@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.mapper.BannerMapper">
+
+    <!--分页查询banner列表-->
+    <select id="selectBannerList" resultType="com.travel.entity.Banner">
+        SELECT id,subTitle,`desc`,img,thumb,link,status,isFixed
+        FROM banner
+        <where>
+            <if test="banner.subTitle != null and banner.subTitle != ''">
+                subTitle LIKE CONCAT('%',#{banner.subTitle},'%')
+            </if>
+            <if test="banner.status != null and banner.status != ''">
+                status = #{banner.status}
+            </if>
+        </where>
+        ORDER BY id ASC
+        LIMIT #{start}, #{pageSize}
+    </select>
+
+    <!--统计总记录数，分页使用-->
+    <select id="countBanner" resultType="int">
+        SELECT COUNT(*) FROM banner
+        <where>
+            <if test="banner.subTitle != null and banner.subTitle != ''">
+                subTitle LIKE CONCAT('%',#{banner.subTitle},'%')
+            </if>
+            <if test="banner.status != null and banner.status != ''">
+                status = #{banner.status}
+            </if>
+        </where>
+    </select>
+
+    <!--根据id查询单条banner-->
+    <select id="selectBannerById" resultType="com.travel.entity.Banner">
+        SELECT id,subTitle,`desc`,img,thumb,link,status,isFixed
+        FROM banner WHERE id=#{id}
+    </select>
+
+    <!--新增banner，useGeneratedKeys获取自增主键id-->
+    <insert id="insertBanner" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO banner(subTitle,`desc`,img,thumb,link,status,isFixed)
+        VALUES(#{subTitle},#{desc},#{img},#{thumb},#{link},#{status},#{isFixed})
+    </insert>
+
+    <!--修改banner-->
+    <update id="updateBanner">
+        UPDATE banner
+        <set>
+            <if test="subTitle != null">subTitle=#{subTitle},</if>
+            <if test="desc != null">`desc`=#{desc},</if>
+            <if test="img != null">img=#{img},</if>
+            <if test="thumb != null">thumb=#{thumb},</if>
+            <if test="link != null">link=#{link},</if>
+            <if test="status != null">status=#{status},</if>
+            <if test="isFixed != null">isFixed=#{isFixed},</if>
+        </set>
+        WHERE id=#{id}
+    </update>
+
+    <!--删除banner-->
+    <delete id="deleteBanner">
+        DELETE FROM banner WHERE id=#{id}
+    </delete>
+
+</mapper>

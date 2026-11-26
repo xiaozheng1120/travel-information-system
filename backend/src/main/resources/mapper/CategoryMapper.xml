@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.mapper.CategoryMapper">
+
+    <select id="selectCategoryList" resultType="com.travel.entity.Category">
+        SELECT * FROM spot_category
+        <where>
+            <if test="category.name != null and category.name != ''">
+                name LIKE CONCAT('%',#{category.name},'%')
+            </if>
+        </where>
+        ORDER BY sort ASC
+        LIMIT #{start}, #{pageSize}
+    </select>
+
+    <select id="countCategory" resultType="int">
+        SELECT COUNT(*) FROM spot_category
+        <where>
+            <if test="category.name != null and category.name != ''">
+                name LIKE CONCAT('%',#{category.name},'%')
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertCategory" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO spot_category(name, sort, status)
+        VALUES(#{name},#{sort},#{status})
+    </insert>
+
+    <update id="updateCategory">
+        UPDATE spot_category
+        SET name=#{name}, sort=#{sort}, status=#{status}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="deleteCategoryById">
+        DELETE FROM spot_category WHERE id = #{id}
+    </delete>
+
+    <select id="selectAllCategory" resultType="com.travel.entity.Category">
+        SELECT * FROM spot_category WHERE status = '启用' ORDER BY sort ASC
+    </select>
+
+    <!-- 新增：下拉专用，只查询id和name，给景点新增弹窗下拉 -->
+    <select id="selectEnableAllCategory" resultType="com.travel.entity.Category">
+        SELECT id,name FROM spot_category
+        WHERE status = '启用'
+        ORDER BY sort ASC
+    </select>
+
+</mapper>
